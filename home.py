@@ -16,7 +16,7 @@ st.markdown("""
         <a class="nav-link disabled" href="#">Home <span class="sr-only"></span></a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="https://share.streamlit.io/zainabhodroj/churn/main/home.py" target="_blank">Overview</a>
+        <a class="nav-link" href="https://share.streamlit.io/zainabhodroj/sthome/main/home.py" target="_blank">Overview</a>
       </li>
       <li class="nav-item"> 
         <a class="nav-link" href="https://share.streamlit.io/zainabhodroj/datavis/main/Datavis.py" target="_blank">DataVisulization</a>
