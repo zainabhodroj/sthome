@@ -1,12 +1,36 @@
 import streamlit as st
-import os
 import numpy as np
 import pandas as pd
 from PIL import Image
-from multiapp import MultiApp
+from style import webapp_style
 
-image1= Image.open(r'C:\Users\user\Downloads\Zainab_Hodroj\1.png')
-image2= Image.open(r'C:\Users\user\Downloads\Zainab_Hodroj\2.png')
+st.markdown("""
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #faebd7;">
+  <a class="Dataset" href="https://www.kaggle.com/datasets/blastchar/telco-customer-churn" target="_blank">Dataset</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link disabled" href="#">Home <span class="sr-only"></span></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="https://share.streamlit.io/zainabhodroj/churn/main/home.py" target="_blank">Overview</a>
+      </li>
+      <li class="nav-item"> 
+        <a class="nav-link" href="https://share.streamlit.io/zainabhodroj/datavis/main/Datavis.py" target="_blank">DataVisulization</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://share.streamlit.io/zainabhodroj/churn/main/Modelapp.py" target="_blank">Model Prediction</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+""", unsafe_allow_html=True)
+
+image1= Image.open('1.png')
+image2= Image.open('2.png')
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
@@ -25,7 +49,7 @@ st.sidebar.markdown('There is no easy way of identifying a perfect customer chur
 
 st.image(image2, caption=None, width=None, use_column_width=None, clamp=False, channels='RGB', output_format='auto')
 
-df= pd.read_csv(r'C:\Users\user\Downloads\Zainab_Hodroj\Churn.csv')
+df= pd.read_csv('Churn.csv')
 
 st.title('Predicting Customer Churn')
 st.header('With this dashboard you will be able to explore a very crucial subject in the world of business: Customer Churn.')
@@ -36,7 +60,7 @@ if st.checkbox('Show Dataset'):
     number = st.number_input('Number of Rows to View',5,100)
     st.dataframe(df.head(number))
 
-df= pd.read_csv(r'C:\Users\user\Downloads\Zainab_Hodroj\Churn.csv')
+df= pd.read_csv('Churn.csv')
  
 if st.checkbox('shape of Dataset'):
     data_dim = st.radio ('Show Dimension By',('Rows', 'Columns'))
@@ -57,4 +81,3 @@ if st.checkbox('Select Columns to Show'):
 
 from style import webapp_style
 webapp_style()
-
